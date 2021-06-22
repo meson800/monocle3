@@ -7,6 +7,7 @@ embedding}
 \usage{
 learn_graph(
   cds,
+  reduction_method = c("UMAP", "tSNE", "PCA", "LSI", "Aligned"),
   use_partition = TRUE,
   close_loop = TRUE,
   learn_graph_control = NULL,

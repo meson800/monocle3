@@ -6,7 +6,7 @@
 \usage{
 order_cells(
   cds,
-  reduction_method = "UMAP",
+  reduction_method = c("UMAP", "tSNE", "PCA", "LSI", "Aligned"),
   root_pr_nodes = NULL,
   root_cells = NULL,
   verbose = FALSE

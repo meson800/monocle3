@@ -25,15 +25,15 @@
 #' @return an updated cell_data_set object.
 #' @export
 order_cells <- function(cds,
-                        reduction_method = "UMAP",
+                        reduction_method = c("UMAP", "tSNE", "PCA", "LSI", "Aligned"),
                         root_pr_nodes=NULL,
                         root_cells=NULL,
                         verbose = FALSE){
 
+  reduction_method <- match.arg(reduction_method)
+  assertthat::assert_that(is.character(reduction_method))
+
   assertthat::assert_that(methods::is(cds, "cell_data_set"))
-  assertthat::assert_that(assertthat::are_equal("UMAP", reduction_method),
-                          msg = paste("Currently only 'UMAP' is accepted as a",
-                                      "reduction_method."))
   assertthat::assert_that(!is.null(reducedDims(cds)[[reduction_method]]),
                           msg = paste0("No dimensionality reduction for ",
                                       reduction_method, " calculated. ",
